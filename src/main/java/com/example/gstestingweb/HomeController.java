@@ -8,15 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
     @GetMapping(path = "/greeting")
-    public @ResponseBody String greeting(@RequestParam(required = false) String name){
-        String result = null;
-
-        if ((name == null) || name.isEmpty()){
-            result = "Hello, world!";
-        } else {
-            result = "Hello, " + name;
-        }
-
-        return result;
+    public @ResponseBody String greeting(@RequestParam(required = false, defaultValue = "world") String name){
+        return "Hello, " + name;
     }    
 }
