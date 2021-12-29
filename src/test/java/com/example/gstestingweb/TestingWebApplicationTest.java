@@ -19,6 +19,6 @@ class TestingWebApplicationTest {
 
     @Test
     void greetingShouldReturnDefaultMessage() throws Exception {
-        mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Hello")));
+        mockMvc.perform(get("/greeting")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Hello")));
     }
 }

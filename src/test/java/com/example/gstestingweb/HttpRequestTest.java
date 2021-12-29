@@ -22,7 +22,14 @@ class HttpRequestTest {
     @Test
     void greetingShouldReturnDefaultMessage() throws Exception {
         Assertions.assertThat(restTemplate.getForObject("http://localhost:" + 
-            port + "/", String.class)).contains("Hello");
+            port + "/greeting", String.class)).contains("world");
     }
-    
+
+    @Test
+    void greetingShouldReturnNameAsMessage() throws Exception {
+        final String name = "java";
+
+        Assertions.assertThat(restTemplate.getForObject("http://localhost:" + 
+            port + "/greeting?name=" + name, String.class)).contains("world");
+    }
 }
