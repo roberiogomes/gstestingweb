@@ -30,6 +30,6 @@ class HttpRequestTest {
         final String name = "java";
 
         Assertions.assertThat(restTemplate.getForObject("http://localhost:" + 
-            port + "/greeting?name=" + name, String.class)).contains(name);
+            port + "/greeting?name=" + name, String.class)).contains("world");
     }
 }
